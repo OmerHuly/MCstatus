@@ -58,7 +58,7 @@ async def on_message(message):
         else:
             log("Deleting message \"{0}\" from {1}".format(message.content, message.author))
             await message.delete(delay=1)
-    else:
+    elif str(message.channel) == config["BOT_CHANNEL"]:
         log("Deleting message \"{0}\" from {1}".format(message.content, message.author))
         await message.delete(delay=1)
 
