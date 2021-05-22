@@ -11,6 +11,7 @@ minecraft_server = MinecraftServer.lookup(config["SERVER_IP_PORT"])
 start_time = datetime.now().strftime("%d/%m/%Y %H:%M:%S")
 players_last_login = {}
 
+
 @client.event
 async def on_ready():
     """An event that will trigger when the bot is ready"""
@@ -40,8 +41,7 @@ async def on_ready():
 async def on_message(message):
     """An event that will trigger when a message is sent in any channel on the server"""
     if message.author == client.user and message.content.startswith("Last updated: "):
-        while True:
-            await edit_message_and_sleep(message, create_status_message(), 5)
+        pass # It's a regular status message...
     elif message.author != client.user and str(message.channel) == config["BOT_CHANNEL"] and message.content.startswith(config["CMD_CHAR"]):
         if message.content.startswith(config["LAST_CONNECTIONS_CMD"]):
             player_name = get_arguments(message.content)[0]
