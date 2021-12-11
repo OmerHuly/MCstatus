@@ -1,0 +1,13 @@
+[Unit]
+Description=MCstatus Service
+After=multi-user.target
+
+[Service]
+Type=idle
+User=pi
+WorkingDirectory=/home/pi/MCstatus
+ExecStart=/usr/bin/python3 /home/pi/MCstatus/MCstatus.py
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
